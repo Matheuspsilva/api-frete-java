@@ -1,5 +1,5 @@
 CREATE TABLE empresa (
-    id BIGSERIAL PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255),
     endereco VARCHAR(255),
     telefone VARCHAR(255),
@@ -7,7 +7,7 @@ CREATE TABLE empresa (
 );
 
 CREATE TABLE rota (
-    id BIGSERIAL PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     distancia FLOAT,
     nome VARCHAR(255),
     enderecoOrigem VARCHAR(255),
@@ -15,22 +15,23 @@ CREATE TABLE rota (
 );
 
 CREATE TABLE usuario (
-    id BIGSERIAL PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255),
     email VARCHAR(255),
     senha VARCHAR(255)
 );
 
 CREATE TABLE frete (
-    id BIGSERIAL PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     descricao VARCHAR(255),
-    valor FLOAT,
+    valor DOUBLE,
     dataEntrega DATE,
-    status_id BIGSERIAL,
-    remetente_id BIGSERIAL,
-    destinatario_id BIGSERIAL,
-    transportadora_id BIGSERIAL,
-    rota_id BIGSERIAL,
+    status_id BIGINT,
+    remetente_id BIGINT,
+    destinatario_id BIGINT,
+    transportadora_id BIGINT,
+    rota_id BIGINT,
+
     FOREIGN KEY (remetente_id) REFERENCES empresa(id),
     FOREIGN KEY (destinatario_id) REFERENCES empresa(id),
     FOREIGN KEY (transportadora_id) REFERENCES empresa(id),
