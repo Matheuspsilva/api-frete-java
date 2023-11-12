@@ -21,12 +21,25 @@ public class DestinatarioService {
         return (List<Destinatario>) destinatarioRepository.findAll();
     }
 
-//    public Destinatario salvar(Destinatario destinatario) {
-//        return destinatarioRepository.save(destinatario);
-//    }
-//
-//    public void excluir(Integer id) {
-//        destinatarioRepository.deleteById(id);
-//    }
+    public Destinatario obterPorCnpj(String cnpj) {
+        return destinatarioRepository.findByCnpj(cnpj);
+    }
+
+    public Destinatario obterPorId(Long id){
+        return destinatarioRepository.findById(id);
+    }
+
+    public Destinatario salvar(Destinatario destinatario) {
+        return destinatarioRepository.save(destinatario);
+    }
+
+
+    public void excluir(Long id) {
+        destinatarioRepository.deleteById(id);
+    }
+
+    public void atualizar(Destinatario destinatario){
+        destinatarioRepository.update(destinatario);
+    }
 
 }
