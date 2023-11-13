@@ -20,7 +20,8 @@ public class Rota {
     public Rota() {
     }
 
-    public Rota( String nome, Float distancia, String enderecoOrigem, String enderecoDestino) {
+    public Rota(Long id, String nome, Float distancia, String enderecoOrigem, String enderecoDestino) {
+        this.id = id;
         this.distancia = distancia;
         this.nome = nome;
         this.enderecoOrigem = enderecoOrigem;
