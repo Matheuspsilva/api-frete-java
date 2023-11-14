@@ -12,6 +12,8 @@ public class Frete {
     private Long id;
     private String descricao;
     private double valor;
+
+    @Column(name = "dataEntrega")
     private LocalDate dataEntrega;
     private StatusFrete status;
 
